@@ -12,7 +12,7 @@ ffrog functions as an ffmpeg wrapper.
 
 == SYNOPSIS:
 
-  transcode -i input_file -f format_file [-c conf_file, -o output_file]
+  ffrog -i input_file -f format_file [-c conf_file, -o output_file]
 
 == REQUIREMENTS:
 
