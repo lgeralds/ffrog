@@ -18,16 +18,7 @@ def main
   DRY this crap
 =end
 
-  opts = {
-    '--in' => nil,
-    '--format' => nil,
-    '--out' => nil,
-    '--conf' => nil,
-    '--watermark' => nil,
-    '--version' => nil,
-    '--help' => nil,
-    '--overwrite' => nil,
-  }
+  opts = {}
 
   GetoptLong.new(
     [ '--in',         '-i', GetoptLong::REQUIRED_ARGUMENT ],
@@ -42,19 +33,22 @@ def main
     opts[opt] = arg
   end
 
-  if opts.has_key? '--version' && opts['--version'] != nil
-   return s.version
+  s = Supervisor.new
+
+  if opts.has_key? '--version'
+   puts s.version
+   return 0
   end
 
   if opts['--help'] != nil
-    return s.help
+    puts s.help
+    return 0
   end
 
   if !opts['--conf'] or opts['--conf'] == ''
     opts['--conf'] = File.dirname($PROGRAM_NAME) + '/' + File.basename($PROGRAM_NAME, File.extname($PROGRAM_NAME)) + '.conf'
   end
   
-  s = Supervisor.new
   s.overwrite if opts['--overwrite']
   s.in = opts['--in']
   s.format = opts['--format']

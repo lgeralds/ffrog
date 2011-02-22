@@ -15,13 +15,13 @@ class TC_ScriptTest < Test::Unit::TestCase
 
   def test_no_options
     assert_raise ExecutionException do
-      exe( "bin/transcoder" )
+      exe( "bin/ffrog" )
     end
   end
 
   def test_options_min
     assert_nothing_raised do
-      exe( "bin/transcoder --in test/data/black-720x480.mp4 --format test/data/test_script_format.fmt" )
+      exe( "bin/ffrog --in test/data/black-720x480.mp4 --format test/data/test_script_format.fmt" )
     end
   end
 

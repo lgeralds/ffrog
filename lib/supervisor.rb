@@ -15,6 +15,7 @@ class SupervisorException < StandardError
 end
 
 class Supervisor
+  VERSION = '2.0.0'
   def initialize
     @overwrite = false
     @in = nil
@@ -25,11 +26,14 @@ class Supervisor
   end
 
   def version
-    return ""
+    return "ffrog v#{Supervisor::VERSION} - transcoder v#{Transcoder::VERSION}"
   end
 
   def help
-    return ""
+=begin
+  TODO - add help
+=end
+    return "Help goes here"
   end
 
   def in=(f)
