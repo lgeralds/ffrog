@@ -4,3 +4,5 @@
 *.m4a
 *.wmv
 *.mov
+test.yaml
+yml-read.rb
