@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+# 
+#  supervisor.rb
+#  transcode
+#  
+#  Created by lgeralds on 2009-06-01.
+#  Copyright 2009 lgeralds. All rights reserved.
+# 
+
+require 'getoptlong'
+require 'supervisor'
+
+def main
+=begin
+  TODO 
+  DRY this crap
+=end
+
+  opts = {
+    '--in' => nil,
+    '--format' => nil,
+    '--out' => nil,
+    '--conf' => nil,
+    '--watermark' => nil,
+    '--version' => nil,
+    '--help' => nil,
+    '--overwrite' => nil,
+  }
+
+  GetoptLong.new(
+    [ '--in',         '-i', GetoptLong::REQUIRED_ARGUMENT ],
+    [ '--format',     '-f', GetoptLong::REQUIRED_ARGUMENT ],
+    [ '--out',        '-o', GetoptLong::REQUIRED_ARGUMENT ],
+    [ '--conf',       '-c', GetoptLong::REQUIRED_ARGUMENT ],
+    [ '--watermark',  '-w', GetoptLong::REQUIRED_ARGUMENT ],
+    [ '--version',    '-v', GetoptLong::NO_ARGUMENT ],
+    [ '--help',       '-h', GetoptLong::NO_ARGUMENT ],
+    [ '--overwrite',  '-x', GetoptLong::NO_ARGUMENT ]
+  ).each do |opt, arg|
+    opts[opt] = arg
+  end
+
+  if opts.has_key? '--version' && opts['--version'] != nil
+   return s.version
+  end
+
+  if opts['--help'] != nil
+    return s.help
+  end
+
+  if !opts['--conf'] or opts['--conf'] == ''
+    opts['--conf'] = File.dirname($PROGRAM_NAME) + '/' + File.basename($PROGRAM_NAME, File.extname($PROGRAM_NAME)) + '.conf'
+  end
+  
+  s = Supervisor.new
+  s.overwrite if opts['--overwrite']
+  s.in = opts['--in']
+  s.format = opts['--format']
+  s.conf = opts['--conf']
+  s.watermark = opts['--watermark']
+  s.out = opts['--out']
+  s.execute
+end
+
+# avoid evaluation durning unit testing
+if $PROGRAM_NAME =~ /#{__FILE__}$/
+  main()
+end

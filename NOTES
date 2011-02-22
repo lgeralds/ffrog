@@ -1,0 +1,85 @@
+Concerning ffmpeg w/avfilters
+
+- vhook stuff is dropped
+- vf parameters
+- af parameters
+
+
+
+What todo?
+
+TODO - detect availability of avfilter - done
+TODO - detect os and use for dynamic lib ext - done
+
+TODO Now... Fix the damn conf file format. AND while working on that, fix the location and naming issues.
+- add test_unit_testing.yaml - this file is optimized for unit testing, it's set up
+to easily test different executables
+- add test_funtional_testing.yaml - this is designed to test various aspects of
+transcoding
+
+TODO 10 sec black video - done
+TODO 10 sec white video - done
+see dupe.rp
+
+Next up...
+TODO testing the main script
+TODO - checking options
+- 
+So what does the main script actually do?
+
+
+-v - version is combination of supervisor version and transcoder version
+-h - spit out a usage message
+
+-i - input file pattern - required
+ 
+-o - output file pattern - optional
+an extension will be appended if defined in the format
+if omitted, a filename is generated from the input pattern
+
+-c - a configuration file - optional, we'll use a default otherwise
+-w - watermark file, optional, is this really useful?
+-y - overwrite mode
+
+
+
+testing main script:
+- staring from different places, 
+    is the default conf found?
+    is the output in the right place?
+
+
+TODO Future macros
+- title screens
+- rolling credits
+- combining video files
+- extracting video
+- transitions
+
+configuration file - location of stuff
+base_dir: /Users/lgeralds/Projects/general-installer/ffmpeg-avfilter/
+lib_dir: lib/vhook
+bin_dir: bin
+ffmpeg: ffmpeg
+ffprobe: ffprobe
+
+wm_file: 'data/watermark_test_2.png'
+wm_margin: '16x16'
+
+
+TODO Should test videos be put in version control? - done
+yes. But use small, useful samples.
+
+format files
+
+
+test data files
+
+
+
+TODO - it's working, now
+
+TODO - expand macro, where the value is nil and one where it's empty -
+TODO - watermark
+
+

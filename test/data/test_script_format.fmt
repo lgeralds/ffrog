@@ -1,0 +1,8 @@
+- 
+    name : TEST_SCRIPT_FORMAT
+    ext: 'flv'
+    params:
+      - vcodec: flv
+      - ar: 22050
+#      - qmin: 4
+      - qmax: 4

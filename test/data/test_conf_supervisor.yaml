@@ -1,0 +1,19 @@
+# 
+#  test_conf_supervisor.yaml
+#  transcoder
+#  
+#  Created by lgeralds on 2011-02-18.
+#  Copyright 2011 lgeralds. All rights reserved.
+# 
+
+base_dir: '/Users/lgeralds/Projects/general-installer/ffmpeg-0.5.3'
+lib_dir: '/lib/vhook'
+bin_dir: '/bin'
+ffmpeg: '/ffmpeg'
+ffprobe: '/ffprobe'
+wm_lib: 'imlib2'
+wm_file: 'test/data/watermark_test.png'
+wm_margin: '16x16'
+
+# this stuff is here for testing
+good_file: 'test/data/black-720x480.mp4'

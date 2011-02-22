@@ -1,0 +1,8 @@
+- 
+  name : TEST_SCRIPT_FORMAT
+  ext: 'flv'
+  params:
+    - vcodec: flv
+    - ar: 22050
+    - qmax: 4
+    - watermark: wm_vert=center,wm_horz=center

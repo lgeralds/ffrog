@@ -1,0 +1,79 @@
+# 
+#  test_format_supervisor.yaml
+#  transcoder
+#  
+#  Created by lgeralds on 2011-02-18.
+#  Copyright 2011 lgeralds. All rights reserved.
+# 
+
+# - format:
+#     name: TEST_PARAMS_01
+#     ext: mp4
+#     watermark: watermark.png
+#     params:
+#         - one: 1
+#         - two: 2
+#         - three: 3
+
+-
+  name: TEST_FORMAT_00
+  ext: ''
+  params:
+    - k: '1'
+    - l: '2'
+    - m: '3'
+    - n: ''
+    - o: '4'
+    - p:
+    - q: 5
+  
+# test for missing params
+-
+  name: TEST_FORMAT_01
+
+# test for empty params
+-
+  name: TEST_FORMAT_02
+  ext: flv
+  params:
+
+# test for junk file
+-
+  name: TEST_FORMAT_03
+  file: 'junk.mp4'
+  params:
+
+# test mp4
+- 
+  name: TEST_FORMAT_04
+  file: 'test_01.mp4'
+  params:
+
+# supplied watermark data
+- 
+  name: TEST_FORMAT_05
+  params:
+    - k: '1'
+    - l: '2'
+    - m: '3'
+    - watermark: 'wm_lib=watermark.dylib,wm_file=watermark_test.png,wm_vert=25,wm_horz=25'
+    - n: ''
+    - o: '4'
+
+# test letterboxing
+- 
+  name: TEST_FORMAT_06
+  file: 'test_01.mp4'
+  params:
+
+# test pillarboxing
+- 
+  name: TEST_FORMAT_07
+  file: 'test_01.mp4'
+  params:
+
+# WMV Conversion parameters:
+# ffmpeg -i {input path} -vcodec wmv2 -g 200 -qmin 4 -b 1200k -r 24 -acodec  wmav2 -ar 48000 -ac 2 -ab 128k {output path}
+
+# MPEG conversion parameters:
+# ffmpeg -i {input path} -vcodec mpeg1video -b 1000k  -qmin 1 -qmax 31 -acodec mp2 -ar 22050 -ac 1 {output path}

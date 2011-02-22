@@ -1,0 +1,8 @@
+.autotest
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/transcoder
+lib/transcoder.rb
+test/test_transcoder.rb

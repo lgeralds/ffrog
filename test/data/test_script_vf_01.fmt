@@ -1,0 +1,13 @@
+- 
+  name : TEST_SCRIPT_FORMAT
+  ext: 'flv'
+  params:
+    - vcodec: flv
+    - ar: 22050
+    - qmax: 4
+    # - watermark: wm_vert=top,wm_horz=left
+    # - i: 'test/data/test_sample.mov'
+    # - vf: "'movie=0:mp4:test/data/black-720x480.mp4[wm];[wm]scale=1280:720 [wm];[in][wm] overlay=0:0 [out]'"
+    # - vf: "'movie=0:mp4:test/data/black-720x480.mp4[wm];[in][wm] overlay=0:0 [out]'"
+    # - vf: "'movie=0:mp4:test/data/test_sample_02.mov[wm];[wm]scale=640:360[wm];[in][wm] overlay=0:0 [out]'"
+    - vf: "'movie=0:mp4:test/data/test_sample_02.mov[wm];[wm]scale=640:360[wm];[in][wm] overlay=0:0 [out]'"
